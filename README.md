@@ -17,3 +17,9 @@ composer install
 # Inside the project root path
 php -S 0.0.0.0:8000 -t .
 ```
+
+
+### *Notes*
+
+> This project was created for educational purposes only.
+> To use it in production, I suggest some performance improvements and maybe switching to OOP.

@@ -42,6 +42,23 @@ $body = <<<"HTML"
 </html>
 HTML;
 
+$logEmail = !!(CONFIG['email']['log']['enabled'] ?? false);
+
+if ($logEmail) {
+    $logBody = trim(strip_tags($message, '<br>'));
+    $logBody = str_replace('<br>', "\n", $logBody);
+
+    saveLog(
+        [
+            'Name'      => $fromName,
+            'Email'     => $fromEmail,
+            'subject'   => $subject,
+            'content'   => $logBody,
+        ],
+        'contact-form'
+    );
+}
+
 sendEmail(
     $fromName,
     $fromEmail,

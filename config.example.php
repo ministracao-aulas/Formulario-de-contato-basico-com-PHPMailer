@@ -15,7 +15,7 @@ define('CONFIG', [
         'Port'       => 465,
 
         'debug'      => [
-            'enabled' => true,
+            'enabled' => false,//Show errors and detailed info
             'level' => 2,
         ],
 
@@ -25,5 +25,11 @@ define('CONFIG', [
             ['info@example.com', 'Information'],
         ],
         'addReplyTo' => ['joe@example.net', 'Joe User',],
+
+        // Save log
+        'log' => [
+            'enabled' => false,
+            'path' => APP_PATH . '/logs/email.log',
+        ],
     ],
 ]);

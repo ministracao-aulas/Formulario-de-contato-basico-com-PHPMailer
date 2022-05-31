@@ -32,8 +32,8 @@ $body = <<<"HTML"
     <title></title>
 </head>
 <body>
-    <h1>From: {$fromName}</h1>
-    <h2>Email: {$fromEmail}</h2>
+    <h3>From: {$fromName}</h3>
+    <h3>Email: {$fromEmail}</h3>
     <h3>Subject: {$subject}</h3>
 
     <h4>Message:</h4>

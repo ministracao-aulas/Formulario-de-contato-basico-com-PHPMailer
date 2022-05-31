@@ -53,6 +53,14 @@ function mailClient(?bool $debug = null): ?PHPMailer
 
         return $mail ?? null;
     } catch (Exception $e) {
+        saveLog("\n" . __FILE__ . ':' . __LINE__ . "\n" . $e->getMessage(), 'error');
+
+        if (DEBUG) {
+            throw $e;
+        }
+
+        die('An error occurred. Please try again later.');
+
         if ($debug) {
             echo '<pre>';
             echo $e->getMessage();

@@ -59,14 +59,24 @@ if ($logEmail) {
     );
 }
 
-sendEmail(
-    $fromName,
-    $fromEmail,
-    $subject,
-    $body,
-    $attachmentPath,
-    $attachmentName
-);
+try {
+    sendEmail(
+        $fromName,
+        $fromEmail,
+        $subject,
+        $body,
+        $attachmentPath,
+        $attachmentName
+    );
+} catch (\Throwable $th) {
+    saveLog("\n" . __FILE__ . ':' . __LINE__ . "\n" . $th->getMessage(), 'error');
+
+    if (DEBUG) {
+        throw $th;
+    }
+
+    die('An error occurred. Please try again later.');
+}
 
 clearOld();
 
